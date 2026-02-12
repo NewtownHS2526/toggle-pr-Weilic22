@@ -68,3 +68,36 @@ const handleCheckbox = () => {
 }
 
 checkbox.addEventListener("click", handleCheckbox)
+
+const deleteBtn = document.querySelector("#action-buttons")
+
+const handleDelete = () => {
+    inbox.classList.toggle("hidden")
+
+    if (deleteBtn.innerHTML === "Delete Message(s)") {
+        deleteBtn.innerHTML = "Undo Deletion"
+    } else {
+        deleteBtn.innerHTML = "Delete Message(s)"
+    }
+}
+deleteBtn.addEventListener("click", handleDelete)
+
+const readBtn = document.querySelector("#action-buttons");
+
+const markRead = () => {
+    unreadBtn.classList.remove("hidden")
+    inbox.classList.remove("is-selected")
+    inbox.classList.add("is-read")
+    checkbox.checked = false
+}
+
+readBtn.addEventListener("click", markRead)
+
+const darkModeBtn = document.querySelector(".button");
+const body = document.querySelector("body");
+
+const toggleDarkMode = () => {
+    body.classList.toggle("dark-mode");
+};
+
+darkModeBtn.addEventListener("click", toggleDarkMode);
